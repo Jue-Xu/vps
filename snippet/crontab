@@ -1,0 +1,51 @@
+# @reboot source ~/.zshrc; cd /mnt/Vol2/Dropbox/Server/blog_Hexo; hexo server >> /home/jue/crontab_log/blog.log 2>&1
+
+# @reboot docker run -d -p 1200:1200 diygod/rsshub >> /home/jue/crontab_log/rsshub.log 2>&1
+
+#@reboot docker run -d --name recorder -v /mnt/Vol2/rec:/rec ghcr.io/bililive/bililiverecorder:latest run /rec >> /home/jue/recorder.log 2>&1
+#@reboot docker restart recorder >> /home/jue/crontab_log/recorder.log 2>&1
+
+# @reboot docker restart recorder_latest3 >> /home/jue/crontab_log/recorder.log 2>&1
+
+# 26 20 * * *  #!/bin/bash; root /usr/sbin/rtcwake -m mem -s 18 >> /home/jue/SuspendResume.log 2>&1
+
+# 29 19 * * * sh ~/auto_suspend.sh
+
+# 0 */2 * * * source ~/.zshrc; cd /mnt/Vol1/Dropbox/Notebooks/Bilibili; python bili.py >> bili.log 2>&1
+
+# 6 4 * * * #!/bin/bash; python3 /mnt/Vol1/Dropbox/Notebooks/Bilibili/bili.py >> /mnt/Vol1/Dropbox/Notebooks/Bilibili/bili.log 2>&1
+
+############### bilibili
+# 0 */12 * * * cd /mnt/Vol1/Dropbox/Notebooks/Bilibili; ~/anaconda3/bin/python3 bili.py >> bili.log 2>&1
+
+# @reboot sleep 60; cd ~/Documents/Bilibili; ~/anaconda3/bin/python3 luo.py >> luo.log 2>&1
+############### bilibili
+
+# Edit this file to introduce tasks to be run by cron.
+#
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+#
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').#
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+#
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+#
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+#
+# For more information see the manual pages of crontab(5) and cron(8)
+#
+# m h  dom mon dow   command
+
+# @reboot expressvpn connect hk
+#@reboot aria2c --enable-rpc --rpc-listen-all
+#@reboot source ~/.zshrc; ~/anaconda3/bin/jupyter-notebook
+#;docker run -d --name rsshub -p 1200:1200 diygod/rsshub
+# 14 19 * * *  sh /usr/sbin/rtcwake -m mem -s 18000 >> /home/jue/SuspendResume.log 2>&1

@@ -1,0 +1,139 @@
+version: "3"
+services:
+  
+  sonarr:
+    image: ghcr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    restart: unless-stopped
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}      
+      - TZ=${TZ}
+    volumes:
+      - ${APPDATA}sonarr:/config
+      - ${GMEDIA_TV}
+      - ${DOWNLOAD}
+    ports:
+      - 8989:8989
+      
+  radarr:
+    image: ghcr.io/linuxserver/radarr:nightly
+    container_name: radarr
+    restart: unless-stopped
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${APPDATA}radarr:/config
+      - ${GMEDIA_MOVIE}
+      - ${DOWNLOAD}
+    ports:
+      - 7878:7878
+      
+  sabnzbd:
+    image: ghcr.io/linuxserver/sabnzbd
+    container_name: sabnzbd
+    restart: unless-stopped
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${APPDATA}sabnzdb:/config
+      - ${DOWNLOAD}
+    ports:
+      - 8080:8080
+      
+  transmission:
+    image: ghcr.io/linuxserver/transmission
+    container_name: transmission
+    restart: unless-stopped    
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - USER={TRANSUSER}
+      - PASS={TRANSPASS}
+    volumes:
+      - ${APPDATA}transmission:/config
+      - ${DOWNLOAD}
+      - ${WATCH}
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+
+      
+  ombi:
+    image: ghcr.io/linuxserver/ombi
+    container_name: ombi
+    restart: unless-stopped
+    environment:
+      - PUID=${USVC}
+      - PGID=${GSVC}
+      - TZ=${TZ}
+    volumes:
+      - ${APPDATA}ombi:/config
+    ports:
+      - 3579:3579
+      
+  jackett:
+    image: linuxserver/jackett
+    container_name: jackett
+    restart: unless-stopped
+    environment:
+      - PUID=${USVC}
+      - PGID=${GSVC}
+      - TZ=${TZ}
+      - AUTO_UPDATE=true
+    volumes:
+      - ${APPDATA}jackett:/config
+    ports:
+      - 9117:9117
+      
+  tautulli:
+    image: ghcr.io/linuxserver/tautulli
+    container_name: tautulli
+    restart: unless-stopped
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${APPDATA}tautulli:/config
+    ports:
+      - 8181:8181
+      
+  plex:
+    image: ghcr.io/linuxserver/plex
+    container_name: plex
+    restart: unless-stopped
+    network_mode: host
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+    volumes:
+      - ${APPDATA}plex:/config
+      - ${GMEDIA}
+
+  watchtower:
+      image: containrrr/watchtower
+      container_name: watchtower
+      volumes:
+         - /var/run/docker.sock:/var/run/docker.sock
+        
+  portainer:
+    image: portainer/portainer
+    container_name: portainer
+    command: -H unix:///var/run/docker.sock
+    restart: always
+    ports:
+      - 9000:9000
+      - 8000:8000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
+
+volumes:
+  portainer_data:
