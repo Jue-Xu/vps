@@ -1,14 +1,15 @@
 [Unit]
-Description=Gmedia RClone Mount Service
+Description=alist RClone Mount Service
 After=network-online.target
 
 [Service]
 Type=notify
 ExecStart=/usr/bin/rclone mount \
-  --config=/home/jue/.config/rclone/rclone.conf \
+  --config=/root/.config/rclone/rclone.conf \
   --log-level=INFO \
   --log-file=/opt/rclone/logs/rclone-mount.log \
-  --user-agent=jue \
+  --user-agent=root \
+  --header="Referer:" \
   --umask=002 \
   --gid=1002 \
   --uid=1000 \
@@ -20,8 +21,8 @@ ExecStart=/usr/bin/rclone mount \
   --vfs-cache-mode=full \
   --vfs-cache-max-size=100G \
   --vfs-cache-max-age=48h \
-  gdrive: /home/jue/gdrive
-ExecStop=/bin/fusermount -uz /home/jue/gdrive
+  alist: /root/alist
+ExecStop=/bin/fusermount -uz /root/alist
 Restart=on-abort
 RestartSec=5
 StartLimitInterval=60s

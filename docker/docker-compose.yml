@@ -80,6 +80,6 @@ services:
     container_name: x-ui
     network_mode: host
     volumes:
-        - '$PWD/db/:/etc/x-ui/'
-        - '$PWD/cert/:/root/cert/'
+        - '$PWD/xui/db/:/etc/x-ui/'
+        - '$PWD/xui/cert/:/root/cert/'
     restart: unless-stopped
