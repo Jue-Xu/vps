@@ -4,7 +4,7 @@ import time
 # These example values won't work. You must get your own api_id and
 # api_hash from https://my.telegram.org, under API Development.
 api_id = 
-api_hash = '9841a9fe685d6f1463e0d85ad88e42f3'
+api_hash = ''
 
 client = TelegramClient('session_name', api_id, api_hash)
 client.start()
