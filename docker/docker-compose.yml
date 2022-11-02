@@ -19,7 +19,7 @@ services:
       - 6881:6881/udp
       # 此处WEB UI 目标端口与内部端口务必保证相同，见问题1
       - 8081:8081
-    restart: unless-stopped
+    restart: always
 
   alist:
     image: 'xhofe/alist:latest'
@@ -64,7 +64,7 @@ services:
     ports:
       - 8096:8096 # HTTP port
       - 8920:8920 # HTTPS port
-    restart: unless-stopped
+    restart: always
 
   rec:
     image: bililive/recorder:latest
@@ -73,4 +73,13 @@ services:
         - '/mnt/Vol2/rec3:/rec'
     ports:
         - '2356:2356'
+    restart: unless-stopped
+
+  xui:
+    image: 'enwaiax/x-ui:latest'
+    container_name: x-ui
+    network_mode: host
+    volumes:
+        - '$PWD/db/:/etc/x-ui/'
+        - '$PWD/cert/:/root/cert/'
     restart: unless-stopped
