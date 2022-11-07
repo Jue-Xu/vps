@@ -52,3 +52,9 @@ systemctl enable rclone_alist.service
 systemctl start rclone_alist.service
 systemctl status rclone_alist.service
 ```
+
+## disck
+```
+df -h
+du -a /root | sort -n -r | head -n 5
+```

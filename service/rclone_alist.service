@@ -17,10 +17,10 @@ ExecStart=/usr/bin/rclone mount \
   --timeout=1h \
   --poll-interval=15s \
   --dir-cache-time=1000h \
-  --cache-dir=/opt/rclone/cache/gmedia \
+  --cache-dir=/opt/rclone/cache/alist \
   --vfs-cache-mode=full \
-  --vfs-cache-max-size=100G \
-  --vfs-cache-max-age=48h \
+  --vfs-cache-max-size=1G \
+  --vfs-cache-max-age=4h \
   alist: /root/alist
 ExecStop=/bin/fusermount -uz /root/alist
 Restart=on-abort
