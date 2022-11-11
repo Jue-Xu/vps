@@ -1,6 +1,7 @@
 ## Docker directory
 ~/vps/docker/emby/config/plugins/
 
+/var/lib/emby/logs
 
 <!-- ## JavScraper
 ```

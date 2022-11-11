@@ -16,7 +16,7 @@ ExecStart=/usr/bin/rclone mount \
   --allow-other \
   --timeout=1h \
   --poll-interval=15s \
-  --dir-cache-time=1000h \
+  --dir-cache-time=5m \
   --cache-dir=/opt/rclone/cache/alist \
   --vfs-cache-mode=full \
   --vfs-cache-max-size=1G \
