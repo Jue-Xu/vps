@@ -66,6 +66,20 @@ services:
       - 8920:8920 # HTTPS port
     restart: always
 
+  jellyfin:
+    image: lscr.io/linuxserver/jellyfin:latest
+    container_name: jellyfin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - $PWD/jellyfin/config:/config # Configuration directory
+      - /mnt:/mnt # Media directory
+    ports:
+      - 8098:8098
+    restart: unless-stopped
+
   rec:
     image: bililive/recorder:latest
     container_name: recorder
