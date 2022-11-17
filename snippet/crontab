@@ -1,3 +1,9 @@
 10 10 * * * cd /root/vps/snippet/tg_bot; python3 telethon_send_message.py >> tg.log 2>&1
 
+1 5 * * * rclone copy alist:PikPak/POV gd-team:/POV -P >> rclone_pp.log 2>&1
+
+1 1 * * * rclone move vps/docker/rec/data gd-team:/rec -P >> rclone_move_rec.log 2>&1
+
+1 11 * * * rclone copy alist:AliDrive/TV gd-team:/TV -P --header="Referer:" >> rclone_ali.log 2>&1
+
 # 14 19 * * *  sh /usr/sbin/rtcwake -m mem -s 18000 >> /home/jue/SuspendResume.log 2>&1

@@ -60,7 +60,6 @@ services:
       - /root/vps/docker/emby/config:/config # Configuration directory
       - /mnt:/mnt # Media directory
       - /root/alist:/mnt/alist
-      - /path/to/movies:/mnt/share2 # Media directory
     ports:
       - 8096:8096 # HTTP port
       - 8920:8920 # HTTPS port
