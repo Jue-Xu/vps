@@ -32,10 +32,13 @@ chmod a+r /etc/apt/keyrings/docker.gpg
 apt-get update
 
 apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
+docker compose up -d
 ```
 
 ## alist
 ```
+mkdir alist
 docker exec -it alist ./alist admin
 ```
 

@@ -83,7 +83,7 @@ services:
     image: bililive/recorder:latest
     container_name: recorder
     volumes:
-        - '/mnt/Vol2/rec3:/rec'
+        - '/root/vps/docker/rec:/rec'
     ports:
         - '2356:2356'
     restart: unless-stopped

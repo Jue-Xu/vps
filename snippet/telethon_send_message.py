@@ -1,3 +1,4 @@
+#-*- coding: UTF-8 -*-
 from telethon import TelegramClient, events, sync
 import time
 
