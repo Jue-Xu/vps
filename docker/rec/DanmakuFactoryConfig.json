@@ -1,0 +1,22 @@
+{
+    "resolution": [1920, 1080],
+    "scrolltime": 12.000000,
+    "fixtime": 5.000000,
+    "density": -1,
+    "fontname": "Microsoft YaHei",
+    "fontsize": 35,
+    "opacity": 255,
+    "outline": 0,
+    "shadow": 1,
+    "displayArea": 1.000000,
+    "scrollArea": 0.5,
+    "bold": true,
+    "showUsernames": true,
+    "showMsgbox": true,
+    "msgboxSize": [400, 1080],
+    "msgboxPos": [0, -20],
+    "msgboxFontsize": 26,
+    "giftMinPrice": 0.00,
+    "blockmode": [],
+    "statmode": TABLE
+}
